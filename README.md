@@ -14,5 +14,5 @@ Budget Tracker is a tool designed to help you monitor and categorize your spendi
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/budget-tracker.git
+   git clone https://github.com/Saosyn/Bearded-Bros-Project.git
    ```
