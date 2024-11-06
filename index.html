@@ -2,17 +2,115 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       rel="stylesheet"
-      href="assets/style.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
     />
-    <title>Spend, wisely, maybe?</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Bearded Bros Breakdown for Better Budgeting</title>
   </head>
   <body>
+    <div class="container mt-3">
+      <h2>Enter your spending or income below</h2>
+
+      <form action="/action_page.php">
+        <div class="form-floating mb-3 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+          />
+        </div>
+        <div class="form-floating mt-3 mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="pwd"
+            placeholder="Enter password"
+            name="pswd"
+          />
+        </div>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Category of Spending</option>
+          <option value="house">Housing</option>
+          <option value="car">Car</option>
+          <option value="grocery">Grocery</option>
+          <option value="medical">Medical</option>
+          <option value="income">Income</option>
+          <option value="going-out">Going Out</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="container mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Default</td>
+            <td>Defaultson</td>
+            <td>def@somemail.com</td>
+          </tr>
+          <tr class="table-primary">
+            <td>Primary</td>
+            <td>Joe</td>
+            <td>joe@example.com</td>
+          </tr>
+          <tr class="table-success">
+            <td>Success</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+          </tr>
+          <tr class="table-danger">
+            <td>Danger</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+          </tr>
+          <tr class="table-info">
+            <td>Info</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+          </tr>
+          <tr class="table-warning">
+            <td>Warning</td>
+            <td>Refs</td>
+            <td>bo@example.com</td>
+          </tr>
+          <tr class="table-active">
+            <td>Active</td>
+            <td>Activeson</td>
+            <td>act@example.com</td>
+          </tr>
+          <tr class="table-secondary">
+            <td>Secondary</td>
+            <td>Secondson</td>
+            <td>sec@example.com</td>
+          </tr>
+          <tr class="table-light">
+            <td>Light</td>
+            <td>Angie</td>
+            <td>angie@example.com</td>
+          </tr>
+          <tr class="table-dark">
+            <td>Dark</td>
+            <td>Bo</td>
+            <td>bo@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <script src="assets/script.js"></script>
   </body>
 </html>
