@@ -28,17 +28,17 @@ function updateExpenseTable() {
     const row = document.createElement("tr");
 
     row.innerHTML = `
+            <td>${expense.date}</td>
             <td>$${expense.amount.toFixed(2)}</td>
             <td>${expense.description}</td>
             <td>${expense.category}</td>
-            <td>${expense.date}</td>
         `;
     tbody.appendChild(row);
   });
 }
 
 function updateTotalExpenses() {
-  const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+  const total = expenses.reduce((sum, expense) => sum - expense.amount, 0);
   document.getElementById("totalExpenses").innerText = total.toFixed(2);
 }
 
@@ -49,24 +49,23 @@ function updateChart() {
   }, {});
 
   const ctx = document.getElementById("expenseChart").getContext("2d");
-  if (window.expenseChart) window.expenseChart.destroy();
+  if (window.expenseChart) window.expenseChart.destroy;
 
   window.expenseChart = new Chart(ctx, {
-    type: "pie",
+    type: "doughnut",
     data: {
       labels: Object.keys(categoryTotals),
-      datasets: [
-        {
-          data: Object.values(categoryTotals),
-          backgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56",
-            "#4BC0C0",
-            "#9966FF",
-          ],
-        },
-      ],
+      datasets: [{
+        data: Object.values(categoryTotals),
+        backgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56",
+          "#4BC0C0",
+          "#9966FF",
+        ],
+        hoverOffset: 4,
+      }, ],
     },
     options: {
       responsive: true,
@@ -78,5 +77,5 @@ function updateChart() {
 document.addEventListener("DOMContentLoaded", () => {
   updateExpenseTable();
   updateTotalExpenses();
-  updateChart();
 });
+updateChart();
