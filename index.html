@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Budget Tracker</title>
+    <link
+      rel="stylesheet"
+      href="assets/style.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Budget Tracker</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-
-<body>
-  <h1>Budget Tracker</h1>
+  <body>
+    <h1>Budget Tracker</h1>
 
     <div class="container">
-      <div class="input-section">
-        <input type="number" id="expenseAmount" placeholder="Expense Amount" />
-        <input type="text" id="expenseDescription" placeholder="Description" />
+      <!-- Expense Input section -->
+      <div class="input-expense">
+        <input
+          type="number"
+          id="expenseAmount"
+          placeholder="Expense Amount"
+        />
+        <input
+          type="text"
+          id="expenseDescription"
+          placeholder="Description"
+        />
+        <!-- Expense Dropdown List -->
         <select id="expenseCategory">
           <option value="House">House</option>
           <option value="Grocery">Grocery</option>
@@ -26,9 +41,30 @@
         </select>
         <button onclick="addExpense()">Add Expense</button>
       </div>
-
+      <!-- Income Input section -->
+      <div class="input-income">
+        <input
+          type="number"
+          id="incomeAmount"
+          placeholder="Income Amount"
+        />
+        <input
+          type="text"
+          id="incomeDescription"
+          placeholder="Description"
+        />
+        <!-- Income Dropdown list -->
+        <select id="incomeCategory">
+          <option value="Paycheck">Paycheck</option>
+          <option value="Cash">Cash</option>
+          <option value="Zelle">Zelle</option>
+          <option value="CashApp">CashApp</option>
+          <option value="Other">Other</option>
+        </select>
+        <button onclick="addExpense()">Add Income</button>
+      </div>
       <div class="total">
-        <h2>Total Expenses: $<span id="totalExpenses">0</span></h2>
+        <h2>Total Expense: $<span id="totalExpenses">0</span></h2>
       </div>
 
       <div class="table-section">
@@ -48,9 +84,14 @@
       </div>
     </div>
     <section>
-      <canvas id="expenseChart" width="400" height="400" aria-label="Expense chart data visualization" role="img"></canvas>
+      <canvas
+        id="expenseChart"
+        width="400"
+        height="400"
+        aria-label="Expense chart data visualization"
+        role="img"
+      ></canvas>
     </section>
     <script src="assets/script.js"></script>
-</body>
-
+  </body>
 </html>
