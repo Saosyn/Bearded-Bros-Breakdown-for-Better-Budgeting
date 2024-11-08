@@ -21,7 +21,10 @@ h1 {
   margin: 20px;
 }
 
-/* Input Section Styling */
+.container > *{
+  margin: 1rem;
+}
+
 .input-section {
   width: 22%;
   max-width: 600px;
@@ -98,14 +101,80 @@ h1 {
 
 /* Total Expense Styling */
 .total {
-  width: 22%;
-  max-width: 300px;
-  background-color: #ff4c60;
-  color: #ffffff;
   text-align: center;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
   font-size: 1.2em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-section {
+  width: 90%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #7da9d8;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Chart Section Styling */
+#expenseChart {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effects and Responsive Design */
+input:hover,
+select:hover,
+button:hover {
+  border-color: #007bff;
+}
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .input-section,
+  .total,
+  .table-section {
+    width: 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .input-section,
+  .total {
+    width: 90%;
+  }
 }
