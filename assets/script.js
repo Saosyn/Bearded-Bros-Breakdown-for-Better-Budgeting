@@ -55,19 +55,17 @@ function updateChart() {
     type: "doughnut",
     data: {
       labels: Object.keys(categoryTotals),
-      datasets: [
-        {
-          data: Object.values(categoryTotals),
-          backgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56",
-            "#4BC0C0",
-            "#9966FF",
-          ],
-          hoverOffset: 4,
-        },
-      ],
+      datasets: [{
+        data: Object.values(categoryTotals),
+        backgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56",
+          "#4BC0C0",
+          "#9966FF",
+        ],
+        hoverOffset: 4,
+      }, ],
     },
     options: {
       responsive: true,
@@ -80,4 +78,4 @@ document.addEventListener("DOMContentLoaded", () => {
   updateExpenseTable();
   updateTotalExpenses();
 });
-  updateChart();
+updateChart();
