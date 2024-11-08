@@ -49,7 +49,7 @@ function updateChart() {
   }, {});
 
   const ctx = document.getElementById("expenseChart").getContext("2d");
-  if (window.expenseChart) window.expenseChart.destroy();
+  // if (window.expenseChart) window.expenseChart.destroy();
 
   window.expenseChart = new Chart(ctx, {
     type: "pie",
