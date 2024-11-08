@@ -5,6 +5,8 @@ body {
 
 h1 {
   margin-top: 20px;
+  font-size: 2.5em;
+  color: #0e0101;
 }
 
 .container {
@@ -16,6 +18,12 @@ h1 {
 
 .input-section {
   width: 25%;
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .input-section input,
@@ -23,14 +31,89 @@ h1 {
 .input-section button {
   display: block;
   width: 100%;
-  margin: 10px 0;
-  padding: 8px;
+  color: rgb(15, 1, 1);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .total {
   width: 20%;
   text-align: center;
   padding: 20px;
-  background-color: #f4f4f4;
   border-radius: 10px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-section {
+  width: 90%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #7da9d8;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Chart Section Styling */
+#expenseChart {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effects and Responsive Design */
+input:hover,
+select:hover,
+button:hover {
+  border-color: #007bff;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .input-section,
+  .total,
+  .table-section {
+    width: 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .input-section,
+  .total {
+    width: 90%;
+  }
 }
