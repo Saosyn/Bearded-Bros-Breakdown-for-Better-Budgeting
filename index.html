@@ -17,9 +17,8 @@
   <body>
     <h1>Budget Tracker</h1>
 
-    <div class="container">
-      <!-- Expense Input section -->
-      <div class="input-expense">
+    <section class="container">
+      <div class="input-section">
         <input
           type="number"
           id="expenseAmount"
@@ -30,7 +29,6 @@
           id="expenseDescription"
           placeholder="Description"
         />
-        <!-- Expense Dropdown List -->
         <select id="expenseCategory">
           <option value="House">House</option>
           <option value="Grocery">Grocery</option>
@@ -41,8 +39,7 @@
         </select>
         <button onclick="addExpense()">Add Expense</button>
       </div>
-      <!-- Income Input section -->
-      <div class="input-income">
+      <div class="input-section">
         <input
           type="number"
           id="incomeAmount"
@@ -53,16 +50,15 @@
           id="incomeDescription"
           placeholder="Description"
         />
-        <!-- Income Dropdown list -->
         <select id="incomeCategory">
-          <option value="Paycheck">Paycheck</option>
           <option value="Cash">Cash</option>
-          <option value="Zelle">Zelle</option>
-          <option value="CashApp">CashApp</option>
+          <option value="Salary">Salary</option>
           <option value="Other">Other</option>
+          <option value="Zelle">Zelle</option>
         </select>
-        <button onclick="addExpense()">Add Income</button>
+        <button onclick="addAsset()">Add Asset</button>
       </div>
+
       <div class="total">
         <h2>Total Expense: $<span id="totalExpenses">0</span></h2>
       </div>
@@ -82,7 +78,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
     <section>
       <canvas
         id="expenseChart"
