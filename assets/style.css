@@ -27,6 +27,16 @@ h1 {
   padding: 8px;
 }
 
+.table-section {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#table {
+  display: flex;
+  justify-content: space-between;
+}
+
 .total {
   width: 20%;
   text-align: center;

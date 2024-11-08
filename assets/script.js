@@ -28,17 +28,17 @@ function updateExpenseTable() {
     const row = document.createElement("tr");
 
     row.innerHTML = `
+            <td>${expense.date}</td>
             <td>$${expense.amount.toFixed(2)}</td>
             <td>${expense.description}</td>
             <td>${expense.category}</td>
-            <td>${expense.date}</td>
         `;
     tbody.appendChild(row);
   });
 }
 
 function updateTotalExpenses() {
-  const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+  const total = expenses.reduce((sum, expense) => sum - expense.amount, 0);
   document.getElementById("totalExpenses").innerText = total.toFixed(2);
 }
 
