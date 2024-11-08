@@ -49,10 +49,10 @@ function updateChart() {
   }, {});
 
   const ctx = document.getElementById("expenseChart").getContext("2d");
-  // if (window.expenseChart) window.expenseChart.destroy();
+  if (window.expenseChart) window.expenseChart.destroy;
 
   window.expenseChart = new Chart(ctx, {
-    type: "pie",
+    type: "doughnut",
     data: {
       labels: Object.keys(categoryTotals),
       datasets: [
@@ -65,6 +65,7 @@ function updateChart() {
             "#4BC0C0",
             "#9966FF",
           ],
+          hoverOffset: 4,
         },
       ],
     },
@@ -78,5 +79,5 @@ function updateChart() {
 document.addEventListener("DOMContentLoaded", () => {
   updateExpenseTable();
   updateTotalExpenses();
-  updateChart();
 });
+  updateChart();
