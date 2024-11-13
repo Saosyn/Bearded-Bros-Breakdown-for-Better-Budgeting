@@ -1,7 +1,7 @@
 body {
   font-family: 'Arial', sans-serif;
   background-color: #2b2b2b;
-  color: #e6e6e6;
+  color: #2e2a2a;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -262,30 +262,40 @@ button:hover {
 
 /* Bootstrap Framework */
 .container {
-  @extend .d-flex;
-  @extend .flex-wrap;
-  @extend .justify-content-around;
-  @extend .align-items-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .input-section {
-  @extend .bg-light;
-  @extend .p-3;
-  @extend .rounded;
-  @extend .shadow;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .table-section {
-  @extend .table-responsive;
+  overflow-x: auto;
 }
 
 table {
-  @extend .table;
-  @extend .table-bordered;
-  @extend .table-hover;
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
 }
 
 button {
-  @extend .btn;
-  @extend .btn-primary;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
