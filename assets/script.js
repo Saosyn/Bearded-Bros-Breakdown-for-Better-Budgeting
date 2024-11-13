@@ -11,12 +11,12 @@ const date = new Date().toLocaleDateString();
 
 // Update localStorage
 function addExpense() {
-  if (!amount || !description) return alert("Please fill in all fields.");
+  // if (!amount || !description) return alert("Please fill in all fields.");
   const description = document.getElementById("expenseDescription").value;
   const amount = parseFloat(document.getElementById("expenseAmount").value);
   const category = document.getElementById("expenseCategory").value;
   const expense = { amount, description, category, date };
-  expenses.push(expense);
+  expense.push(expenses);
   localStorage.setItem("expenses", JSON.stringify(expenses));
 
   document.getElementById("expenseAmount").value = "";
@@ -28,28 +28,23 @@ function addExpense() {
 }
 
 function addAsset() {
-  if (!amount || !description) return alert("Please fill in all fields.");
+  // if (!amount || !description) return alert("Please fill in all fields.");
   const description = document.getElementById("incomeDescription").value;
   const amount = parseFloat(document.getElementById("incomeAmount").value);
   const category = document.getElementById("incomeCategory").value;
-  const income = { amount, description, category, date };
-  income.push(income);
-  localStorage.setItem("income", JSON.stringify(income));
+  const assets = { amount, description, category, date };
+  assets.push(assets);
+  localStorage.setItem("assets", JSON.stringify(assets));
 
-  document.getElementById("incomeAmount").value = "";
-  document.getElementById("incomeDescription").value = "";
+  document.getElementById("expenseAmount").value = "";
+  document.getElementById("expenseDescription").value = "";
 
-  // updateExpenseTable();
-  // updateTotalExpenses();
+  updateExpenseTable();
+  updateTotalExpenses();
   // updateChart();
 }
 
-// function addAsset() {
-//   const asset = { incomeAmount, incomeDes, incomeCat, date };
-//   assets.push(asset);
-//   localStorage.setItem("assets", JSON.stringify(assets));
-// }
-
+// Update expense table and total expenses
 function updateExpenseTable() {
   tbody.innerHTML = "";
 
@@ -63,18 +58,6 @@ function updateExpenseTable() {
             <td>${expense.category}</td>
         `;
     tbody.appendChild(row);
-
-    income.forEach((income) => {
-      const row = document.createElement("tr");
-
-      row.innerHTML = `
-              <td>${income.date}</td>
-              <td>$${income.amount.toFixed(2)}</td>
-              <td>${income.description}</td>
-              <td>${income.category}</td>
-          `;
-      tbody.appendChild(row);
-    });
   });
 }
 
@@ -83,11 +66,7 @@ function updateTotalExpenses() {
   document.getElementById("totalExpenses").innerText = total.toFixed(2);
 }
 
-// function updateTotalExpenses() {
-//   const total = income.reduce((sum, income) => sum + income.amount, 0);
-//   document.getElementById("totalExpenses").innerText = total.toFixed(2);
-// }
-// need to add in a function to add income into the table
+// stat of the pie chart
 
 function updateChart() {
   if (window.expenseChart) window.expenseChart.destroy;
