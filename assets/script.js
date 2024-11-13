@@ -78,7 +78,12 @@ function updateTotal() {
 
 // Update the pie chart
 function updateChart() {
-  if (window.expenseChart) window.expenseChart.destroy();
+  // JS - Destroy exiting Chart Instance to reuse <canvas> element
+  let chartStatus = Chart.getChart("expenseChart"); // <canvas> id
+  if (chartStatus != undefined) {
+    chartStatus.destroy();
+  }
+  //-- End of chart destroy   
 
   const categoryTotals = transactions.reduce((totals, transaction) => {
     totals[transaction.category] =
