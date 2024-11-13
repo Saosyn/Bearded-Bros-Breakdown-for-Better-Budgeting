@@ -11,7 +11,7 @@ const date = new Date().toLocaleDateString();
 
 // Update localStorage
 function addExpense() {
-  // if (!amount || !description) return alert("Please fill in all fields.");
+  if (!amount || !description) return alert("Please fill in all fields.");
   const description = document.getElementById("expenseDescription").value;
   const amount = parseFloat(document.getElementById("expenseAmount").value);
   const category = document.getElementById("expenseCategory").value;
@@ -27,28 +27,28 @@ function addExpense() {
   updateChart();
 }
 
-function addIncome() {
-  // if (!amount || !description) return alert("Please fill in all fields.");
+function addAsset() {
+  if (!amount || !description) return alert("Please fill in all fields.");
   const description = document.getElementById("incomeDescription").value;
   const amount = parseFloat(document.getElementById("incomeAmount").value);
   const category = document.getElementById("incomeCategory").value;
   const income = { amount, description, category, date };
-  incomes.push(income);
-  localStorage.setItem("incomes", JSON.stringify(incomes));
+  income.push(income);
+  localStorage.setItem("income", JSON.stringify(income));
 
-  document.getElementById("expenseAmount").value = "";
-  document.getElementById("expenseDescription").value = "";
+  document.getElementById("incomeAmount").value = "";
+  document.getElementById("incomeDescription").value = "";
 
-  updateExpenseTable();
-  updateTotalExpenses();
-  updateChart();
+  // updateExpenseTable();
+  // updateTotalExpenses();
+  // updateChart();
 }
 
-function addAsset() {
-  const asset = { incomeAmount, incomeDes, incomeCat, date };
-  assets.push(asset);
-  localStorage.setItem("assets", JSON.stringify(assets));
-}
+// function addAsset() {
+//   const asset = { incomeAmount, incomeDes, incomeCat, date };
+//   assets.push(asset);
+//   localStorage.setItem("assets", JSON.stringify(assets));
+// }
 
 function updateExpenseTable() {
   tbody.innerHTML = "";
@@ -83,10 +83,10 @@ function updateTotalExpenses() {
   document.getElementById("totalExpenses").innerText = total.toFixed(2);
 }
 
-function updateTotalExpenses() {
-  const total = income.reduce((sum, income) => sum + income.amount, 0);
-  document.getElementById("totalExpenses").innerText = total.toFixed(2);
-}
+// function updateTotalExpenses() {
+//   const total = income.reduce((sum, income) => sum + income.amount, 0);
+//   document.getElementById("totalExpenses").innerText = total.toFixed(2);
+// }
 // need to add in a function to add income into the table
 
 function updateChart() {
@@ -117,7 +117,7 @@ function updateChart() {
       ],
     },
     options: {
-      responsive: true,
+      responsive: false,
       maintainAspectRatio: false,
     },
   });
@@ -128,3 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
   updateExpenseTable();
   updateTotalExpenses();
 });
+
+window.addEventListener(
+  "resize",
+  function (event) {
+    updateChart();
+  },
+  true
+);
