@@ -30,9 +30,9 @@ h1 {
   margin-bottom: 20px;
 }
 
-.input-expense input,
-.input-expense select,
-.input-expense button,
+.input-section input,
+.input-section select,
+.input-section button,
 .input-income input,
 .input-income select,
 .input-income button {
@@ -116,8 +116,8 @@ button:hover {
     justify-content: center;
   }
 
-  .input-expense,
-  .input-income,
+  .input-section,
+  /* .input-income, */
   .total,
   .table-section {
     width: 30%;
@@ -129,7 +129,7 @@ button:hover {
     font-size: 1.8em;
   }
 
-  .input-expense,
+  .input-section,
   .total {
     width: 90%;
   }

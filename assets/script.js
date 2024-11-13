@@ -1,11 +1,11 @@
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 let assets = JSON.parse(localStorage.getItem("assets")) || [];
 
-const incomeamount = parseFloat(document.getElementById("incomeAmount").value);
+const incomeAmount = parseFloat(document.getElementById("incomeAmount").value);
 
-const incomedes = document.getElementById("incomeDescription").value;
+const incomeDes = document.getElementById("incomeDescription").value;
 
-const incomecat = document.getElementById("incomeCategory").value;
+const incomeCat = document.getElementById("incomeCategory").value;
 const tbody = document.getElementById("expenseTableBody");
 const date = new Date().toLocaleDateString();
 
@@ -27,8 +27,25 @@ function addExpense() {
   updateChart();
 }
 
+function addIncome() {
+  // if (!amount || !description) return alert("Please fill in all fields.");
+  const description = document.getElementById("incomeDescription").value;
+  const amount = parseFloat(document.getElementById("incomeAmount").value);
+  const category = document.getElementById("incomeCategory").value;
+  const income = { amount, description, category, date };
+  incomes.push(income);
+  localStorage.setItem("incomes", JSON.stringify(incomes));
+
+  document.getElementById("expenseAmount").value = "";
+  document.getElementById("expenseDescription").value = "";
+
+  updateExpenseTable();
+  updateTotalExpenses();
+  updateChart();
+}
+
 function addAsset() {
-  const asset = { incomeAmount, incomedes, incomecat, date };
+  const asset = { incomeAmount, incomeDes, incomeCat, date };
   assets.push(asset);
   localStorage.setItem("assets", JSON.stringify(assets));
 }
