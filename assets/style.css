@@ -45,7 +45,10 @@ h1 {
 
 .input-section input,
 .input-section select,
-.input-section button {
+.input-section button,
+.input-income input,
+.input-income select,
+.input-income button {
   display: block;
   width: calc(100% - 20px);
   margin: 10px auto;
@@ -243,6 +246,7 @@ button:hover {
   }
 
   .input-section,
+  /* .input-income, */
   .total,
   .table-section {
     width: 30%;
