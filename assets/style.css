@@ -1,17 +1,30 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+  background-color: #2b2b2b;
+  color: #e6e6e6;
   text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #7da9d8;
+  --secondary-color: #f2f2f2;
+  --highlight-color: #007bff;
+  --background-color: #ffffff;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   margin-top: 20px;
   font-size: 2.5em;
-  color: #0e0101;
+  color: #ffffff;
 }
 
 .container {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: flex-start;
   margin: 20px;
 }
@@ -21,11 +34,11 @@ h1 {
 }
 
 .input-section {
-  width: 25%;
+  width: 22%;
   max-width: 600px;
-  background-color: #ffffff;
+  background-color: #3e3e3e;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -34,28 +47,71 @@ h1 {
 .input-section select,
 .input-section button {
   display: block;
-  width: 100%;
-  color: rgb(15, 1, 1);
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
   border: none;
+  font-size: 1em;
+  color: #333;
+}
+
+.input-section button {
+  background-color: #6c63ff;
+  color: white;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.table-section {
-  display: flex;
-  justify-content: flex-end;
+.input-section button:hover {
+  background-color: #5548c8;
 }
 
-#table {
-  display: flex;
-  justify-content: space-between;
+/* Select Styling with Hover Effects */
+.input-section select {
+  transition: background-color 0.3s, color 0.3s;
 }
 
+.input-section select:hover {
+  background-color: #6c63ff;
+  color: #ffffff;
+}
+
+.input-section select option[value="House"] {
+  background-color: #ff9999;
+  color: #fff;
+}
+
+.input-section select option[value="Grocery"] {
+  background-color: #99ccff;
+  color: #fff;
+}
+
+.input-section select option[value="Subscription"] {
+  background-color: #ffcc99;
+  color: #fff;
+}
+
+.input-section select option[value="Going Out"] {
+  background-color: #66cccc;
+  color: #fff;
+}
+
+.input-section select option[value="Car"] {
+  background-color: #cc99ff;
+  color: #fff;
+}
+
+.input-section select option[value="Other"] {
+  background-color: #9966ff;
+  color: #fff;
+}
+
+/* Total Expense Styling */
 .total {
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  background-color: whitesmoke;
   margin-bottom: 20px;
   font-size: 1.2em;
   box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
@@ -65,12 +121,15 @@ h1 {
   width: 90%;
   max-width: 800px;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--box-shadow-color);
 }
 
 table th,
@@ -81,30 +140,67 @@ table td {
 }
 
 table th {
-  background-color: #7da9d8;
+  background-color: var(--primary-color);
   color: #ffffff;
   font-weight: bold;
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: var(--secondary-color);
 }
 
-/* Chart Section Styling */
+/* table row color coordination based upon the type of input */
+tr[data-category="House"] {
+  background-color: #ff9999;
+}
+
+tr[data-category="Grocery"] {
+  background-color: #99ccff;
+}
+
+tr[data-category="Subscription"] {
+  background-color: #ffcc99;
+}
+
+tr[data-category="Going Out"] {
+  background-color: #66cccc;
+}
+
+tr[data-category="Car"] {
+  background-color: #cc99ff;
+}
+
+tr[data-category="Other"] {
+  background-color: #9966ff;
+}
+
+/* expense styling */
+.total {
+  width: 20%;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  box-shadow: 0 4px 8px var(--box-shadow-color);
+}
+
+/*chart selection styling */
 #expenseChart {
   max-width: 400px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: var(--background-color);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--box-shadow-color);
 }
 
 /* Hover Effects and Responsive Design */
 input:hover,
 select:hover,
 button:hover {
-  border-color: #007bff;
+  border-color: var(--highlight-color);
 }
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 768px) {
@@ -129,4 +225,34 @@ button:hover {
   .total {
     width: 90%;
   }
+}
+
+/* Bootstrap Framework */
+.container {
+  @extend .d-flex;
+  @extend .flex-wrap;
+  @extend .justify-content-around;
+  @extend .align-items-start;
+}
+
+.input-section {
+  @extend .bg-light;
+  @extend .p-3;
+  @extend .rounded;
+  @extend .shadow;
+}
+
+.table-section {
+  @extend .table-responsive;
+}
+
+table {
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-hover;
+}
+
+button {
+  @extend .btn;
+  @extend .btn-primary;
 }
