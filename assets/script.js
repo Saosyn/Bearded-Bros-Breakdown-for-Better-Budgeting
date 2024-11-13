@@ -80,7 +80,7 @@ function updateChart() {
       }, ],
     },
     options: {
-      responsive: true,
+      responsive: false,
       maintainAspectRatio: false,
     },
   });
@@ -91,3 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateExpenseTable();
   updateTotalExpenses();
 });
+
+window.addEventListener('resize', function(event) {
+    updateChart();
+}, true);
