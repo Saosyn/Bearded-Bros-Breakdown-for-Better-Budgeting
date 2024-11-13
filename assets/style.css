@@ -3,6 +3,14 @@ body {
   text-align: center;
 }
 
+:root {
+  --primary-color: #7da9d8;
+  --secondary-color: #f2f2f2;
+  --highlight-color: #007bff;
+  --background-color: #ffffff;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
 h1 {
   margin-top: 20px;
   font-size: 2.5em;
@@ -11,17 +19,19 @@ h1 {
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
   margin: 20px;
 }
 
+/* section styling*/
 .input-section {
   width: 25%;
   max-width: 600px;
-  background-color: #ffffff;
+  background-color: var(--background-color);
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--box-shadow-color);
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -31,43 +41,29 @@ h1 {
 .input-section button {
   display: block;
   width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
   color: rgb(15, 1, 1);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.table-section {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#table {
-  display: flex;
-  justify-content: space-between;
-}
-
-.total {
-  width: 20%;
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: whitesmoke;
-  margin-bottom: 20px;
-  font-size: 1.2em;
-  box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
+/* table styling */
 .table-section {
   width: 90%;
   max-width: 800px;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--box-shadow-color);
 }
 
 table th,
@@ -78,30 +74,67 @@ table td {
 }
 
 table th {
-  background-color: #7da9d8;
+  background-color: var(--primary-color);
   color: #ffffff;
   font-weight: bold;
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: var(--secondary-color);
 }
 
-/* Chart Section Styling */
+/* table row color coordination based upon the type of input */
+tr[data-category="House"] {
+  background-color: #ff9999;
+}
+
+tr[data-category="Grocery"] {
+  background-color: #99ccff;
+}
+
+tr[data-category="Subscription"] {
+  background-color: #ffcc99;
+}
+
+tr[data-category="Going Out"] {
+  background-color: #66cccc;
+}
+
+tr[data-category="Car"] {
+  background-color: #cc99ff;
+}
+
+tr[data-category="Other"] {
+  background-color: #9966ff;
+}
+
+/* expense styling */
+.total {
+  width: 20%;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  box-shadow: 0 4px 8px var(--box-shadow-color);
+}
+
+/*chart selection styling */
 #expenseChart {
   max-width: 400px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: var(--background-color);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--box-shadow-color);
 }
 
 /* Hover Effects and Responsive Design */
 input:hover,
 select:hover,
 button:hover {
-  border-color: #007bff;
+  border-color: var(--highlight-color);
 }
 
 @media (min-width: 768px) {
@@ -126,4 +159,34 @@ button:hover {
   .total {
     width: 90%;
   }
+}
+
+/* Bootstrap Framework */
+.container {
+  @extend .d-flex;
+  @extend .flex-wrap;
+  @extend .justify-content-around;
+  @extend .align-items-start;
+}
+
+.input-section {
+  @extend .bg-light;
+  @extend .p-3;
+  @extend .rounded;
+  @extend .shadow;
+}
+
+.table-section {
+  @extend .table-responsive;
+}
+
+table {
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-hover;
+}
+
+button {
+  @extend .btn;
+  @extend .btn-primary;
 }
