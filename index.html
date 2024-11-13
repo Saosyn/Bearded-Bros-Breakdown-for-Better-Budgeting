@@ -12,7 +12,7 @@
 <body>
   <h1>Budget Tracker</h1>
 
-    <div class="container">
+    <section class="container">
       <div class="input-section">
         <input type="number" id="expenseAmount" placeholder="Expense Amount" />
         <input type="text" id="expenseDescription" placeholder="Description" />
@@ -25,6 +25,17 @@
           <option value="Other">Other</option>
         </select>
         <button onclick="addExpense()">Add Expense</button>
+      </div>
+      <div class="input-section">
+        <input type="number" id="incomeAmount" placeholder="Income Amount" />
+        <input type="text" id="incomeDescription" placeholder="Description" />
+        <select id="incomeCategory">
+          <option value="Cash">Cash</option>
+          <option value="Salary">Salary</option>
+          <option value="Other">Other</option>
+          <option value="Zelle">Zelle</option>
+        </select>
+        <button onclick="addAsset()">Add Asset</button>
       </div>
 
       <div class="total">
@@ -46,7 +57,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
     <section>
       <canvas id="expenseChart" width="400" height="400" aria-label="Expense chart data visualization" role="img"></canvas>
     </section>
