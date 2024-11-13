@@ -51,6 +51,9 @@ function updateTable() {
 
   transactions.forEach((transaction) => {
     const row = document.createElement("tr");
+    // row.classList.add(expense.category); // Add category as class name to table row 
+    row.setAttribute('data-category', transaction.category);
+    
     const amountText =
       transaction.amount >= 0
         ? `$${transaction.amount.toFixed(2)}`
@@ -116,6 +119,28 @@ function updateChart() {
       maintainAspectRatio: false,
     },
   });
+}
+
+function searchTable() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("expenseInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("expenseTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
