@@ -94,13 +94,20 @@ function updateTable() {
 
 // Calculate total balance
 function updateTotal() {
-  const total = transactions.reduce(
-    (sum, transaction) => sum + transaction.amount,
-    0
-  );
-  document.getElementById("totalExpenses").innerText = total.toFixed(2);
-}
+  const totalExpenses = transactions
+  .filter(transaction => transaction.type === "Expense")
+  .reduce((sum, transaction) => sum + Math.abs(transaction.amount), 0);
 
+const totalIncome = transactions
+  .filter(transaction => transaction.type === "Income")
+  .reduce((sum, transaction) => sum + transaction.amount, 0);
+
+const totalNet = totalIncome - totalExpenses;
+
+  document.getElementById("totalExpenses").innerText = totalExpenses.toFixed(2);
+  document.getElementById("totalIncome").innerText = totalIncome.toFixed(2);
+  document.getElementById("net").innerText = totalNet.toFixed(2);
+}
 // Update the pie chart
 function updateChart() {
   // JS - Destroy exiting Chart Instance to reuse <canvas> element
