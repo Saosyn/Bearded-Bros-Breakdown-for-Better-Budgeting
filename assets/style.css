@@ -135,21 +135,21 @@ table {
   box-shadow: 0 4px 8px var(--box-shadow-color);
 }
 
-table th,
-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+/* graphics and colors */
+
+thead,
+tfoot,
+tr {
+  background: white;
+  color: darkslategray;
+  text-shadow: 1px 1px 1px #ccc;
 }
 
-table th {
-  background-color: var(--primary-color);
-  color: #ffffff;
-  font-weight: bold;
-}
-
-tr:nth-child(even) {
-  background-color: var(--secondary-color);
+thead th,
+tfoot th,
+thead tr,
+tfoot td {
+  background: linear-gradient(to bottom, rgb(0 0 0 / 10%), rgb(0 0 0 / 50%));
 }
 
 /* table row color coordination based upon the type of input */

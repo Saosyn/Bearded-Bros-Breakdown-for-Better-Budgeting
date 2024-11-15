@@ -8,6 +8,7 @@ function addExpense() {
   const description = document.getElementById("expenseDescription").value;
   const amount = parseFloat(document.getElementById("expenseAmount").value);
   const category = document.getElementById("expenseCategory").value;
+  var expform = document.getElementById('expense');
   const transaction = {
     amount: -amount,
     description,
@@ -16,15 +17,26 @@ function addExpense() {
     type: "Expense",
   };
 
-  transactions.push(transaction);
-  localStorage.setItem("transactions", JSON.stringify(transactions));
-
-  document.getElementById("expenseAmount").value = "";
-  document.getElementById("expenseDescription").value = "";
-
-  updateTable();
-  updateTotal();
-  updateChart();
+  // Validate that all form fields are completed
+    for(var i=0; i < expform.elements.length; i++){
+      if(expform.elements[i].value === '' && expform.elements[i].hasAttribute('required')){
+        alert('There are some required fields!');
+        return false;
+      }
+    }
+    // If all fields present: 
+    // Log to localStorage"
+    transactions.push(transaction);
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+    
+    // Reset values
+    document.getElementById("expenseAmount").value = "";
+    document.getElementById("expenseDescription").value = "";
+    
+    // Reset tables, charts:
+    updateTable();
+    updateTotal();
+    updateChart();
 }
 
 // Update localStorage for income
@@ -33,7 +45,17 @@ function addIncome() {
   const amount = parseFloat(document.getElementById("incomeAmount").value);
   const category = document.getElementById("incomeCategory").value;
   const transaction = { amount, description, category, date, type: "Income" };
-
+  var incform = document.getElementById('income');
+  
+  // Validate that all form fields are completed
+  for(var i=0; i < incform.elements.length; i++){
+    if(incform.elements[i].value === '' && incform.elements[i].hasAttribute('required')){
+      alert('There are some required fields!');
+      return false;
+    }
+  }
+  // If all fields present: 
+  // Log to localStorage"
   transactions.push(transaction);
   localStorage.setItem("transactions", JSON.stringify(transactions));
 
@@ -56,7 +78,7 @@ function updateTable() {
 
     const amountText =
       transaction.amount >= 0
-        ? `$${transaction.amount.toFixed(2)}`
+        ? `$${transaction.amount}`
         : `-$${Math.abs(transaction.amount).toFixed(2)}`;
 
     row.innerHTML = `
