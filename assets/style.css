@@ -71,7 +71,8 @@ h2 {
   border: none;
   font-size: 1em;
   color: #333;
-  font-family: var(--dot-font-two);
+  font-family: var(--dot-font-three);
+  font-weight: 900;
 }
 
 .input-section button {
