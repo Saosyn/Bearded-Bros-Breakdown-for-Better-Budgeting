@@ -153,6 +153,10 @@ tfoot td {
 }
 
 /* table row color coordination based upon the type of input */
+
+tr[data-category="Salary"] {
+  background-color: #9ee73e;
+}
 tr[data-category="House"] {
   background-color: #ff9999;
 }
