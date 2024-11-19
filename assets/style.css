@@ -64,6 +64,7 @@ h1 {
   border: none;
   font-size: 1em;
   color: #333;
+  font-family: var(--dot-font-two);
 }
 
 .input-section button {
@@ -125,6 +126,15 @@ h1 {
   margin-bottom: 20px;
   font-size: 1.2em;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  /* font-variation-settings: "ROND" 0; */
+}
+
+h2 {
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
 }
 
 .table-section {
@@ -140,6 +150,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   box-shadow: 0 4px 8px var(--box-shadow-color);
+  font-family: var(--dot-font-two);
 }
 
 /* graphics and colors */
@@ -186,6 +197,14 @@ tr[data-category="Car"] {
 
 tr[data-category="Other"] {
   background-color: #9966ff;
+}
+
+tr[data-category="Zelle"] {
+  background-color: #9ee73e;
+}
+
+tr[data-category="Cash"] {
+  background-color: #9ee73e;
 }
 
 /* expense styling */

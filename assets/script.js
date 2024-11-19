@@ -8,7 +8,7 @@ function addExpense() {
   const description = document.getElementById("expenseDescription").value;
   const amount = parseFloat(document.getElementById("expenseAmount").value);
   const category = document.getElementById("expenseCategory").value;
-  var expform = document.getElementById('expense');
+  var expform = document.getElementById("expense");
   const transaction = {
     amount: -amount,
     description,
@@ -18,25 +18,28 @@ function addExpense() {
   };
 
   // Validate that all form fields are completed
-    for(var i=0; i < expform.elements.length; i++){
-      if(expform.elements[i].value === '' && expform.elements[i].hasAttribute('required')){
-        alert('There are some required fields!');
-        return false;
-      }
+  for (var i = 0; i < expform.elements.length; i++) {
+    if (
+      expform.elements[i].value === "" &&
+      expform.elements[i].hasAttribute("required")
+    ) {
+      alert("There are some required fields!");
+      return false;
     }
-    // If all fields present: 
-    // Log to localStorage"
-    transactions.push(transaction);
-    localStorage.setItem("transactions", JSON.stringify(transactions));
-    
-    // Reset values
-    document.getElementById("expenseAmount").value = "";
-    document.getElementById("expenseDescription").value = "";
-    
-    // Reset tables, charts:
-    updateTable();
-    updateTotal();
-    updateChart();
+  }
+  // If all fields present:
+  // Log to localStorage"
+  transactions.push(transaction);
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  // Reset values
+  document.getElementById("expenseAmount").value = "";
+  document.getElementById("expenseDescription").value = "";
+
+  // Reset tables, charts:
+  updateTable();
+  updateTotal();
+  updateChart();
 }
 
 // Update localStorage for income
@@ -45,16 +48,19 @@ function addIncome() {
   const amount = parseFloat(document.getElementById("incomeAmount").value);
   const category = document.getElementById("incomeCategory").value;
   const transaction = { amount, description, category, date, type: "Income" };
-  var incform = document.getElementById('income');
-  
+  var incform = document.getElementById("income");
+
   // Validate that all form fields are completed
-  for(var i=0; i < incform.elements.length; i++){
-    if(incform.elements[i].value === '' && incform.elements[i].hasAttribute('required')){
-      alert('There are some required fields!');
+  for (var i = 0; i < incform.elements.length; i++) {
+    if (
+      incform.elements[i].value === "" &&
+      incform.elements[i].hasAttribute("required")
+    ) {
+      alert("There are some required fields!");
       return false;
     }
   }
-  // If all fields present: 
+  // If all fields present:
   // Log to localStorage"
   transactions.push(transaction);
   localStorage.setItem("transactions", JSON.stringify(transactions));
@@ -95,14 +101,14 @@ function updateTable() {
 // Calculate total balance
 function updateTotal() {
   const totalExpenses = transactions
-  .filter(transaction => transaction.type === "Expense")
-  .reduce((sum, transaction) => sum + Math.abs(transaction.amount), 0);
+    .filter((transaction) => transaction.type === "Expense")
+    .reduce((sum, transaction) => sum + Math.abs(transaction.amount), 0);
 
-const totalIncome = transactions
-  .filter(transaction => transaction.type === "Income")
-  .reduce((sum, transaction) => sum + transaction.amount, 0);
+  const totalIncome = transactions
+    .filter((transaction) => transaction.type === "Income")
+    .reduce((sum, transaction) => sum + transaction.amount, 0);
 
-const totalNet = totalIncome - totalExpenses;
+  const totalNet = totalIncome - totalExpenses;
 
   document.getElementById("totalExpenses").innerText = totalExpenses.toFixed(2);
   document.getElementById("totalIncome").innerText = totalIncome.toFixed(2);
@@ -133,13 +139,24 @@ function updateChart() {
         {
           data: Object.values(categoryTotals),
           backgroundColor: [
-            "#9ee73e", 
+            // Salary
+            "#9ee73e",
+            // Going-Out
+            "#66cccc",
+            // House
             "#ff9999",
+            // Car
             "#cc99ff",
+            // Grocery
             "#99ccff",
-            "#66cccc", 
+            // Subscription
             "#ffcc99",
+            // Other
             "#9966FF",
+            // Zelle
+            "#9ee73e",
+            // Cash
+            "#9ee73e",
           ],
           hoverOffset: 4,
         },
