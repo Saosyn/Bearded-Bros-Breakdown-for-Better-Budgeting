@@ -1,5 +1,4 @@
 let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
-
 const tbody = document.getElementById("expenseTableBody");
 const date = new Date().toLocaleDateString();
 
@@ -190,6 +189,27 @@ function searchTable() {
     }
   }
 }
+// Use ESC to exit modal: 
+const modal = document.getElementById('modal')
+
+window.addEventListener('popstate', () => {
+  const target = window.location.hash
+  
+  if (target === '#modal') {
+    modal.focus();
+    modal.setAttribute('aria-hidden', false);
+    return
+  }
+  
+  modal.setAttribute('aria-hidden', true)
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key == "Escape" && window.location.hash === '#modal') {
+    window.location.hash = ""
+  }
+})
+
 
 document.addEventListener("DOMContentLoaded", () => {
   updateChart();
