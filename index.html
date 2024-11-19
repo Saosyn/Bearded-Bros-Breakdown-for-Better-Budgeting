@@ -1,76 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bearded Bros Budget Tracker</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Metal+Mania&family=New+Rocker&family=Philosopher&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bearded Bros Budget Tracker</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  <body>
+    <h1>Bearded Bros Budget Tracker</h1>
 
-<body>
-  <h1>Bearded Bros Budget Tracker</h1>
+    <section class="container">
+      <div class="input-section">
+        <form id="expense" method="" action="">
+          <input
+            type="number"
+            id="expenseAmount"
+            placeholder="Expense Amount"
+            required
+          />
+          <input
+            type="text"
+            id="expenseDescription"
+            placeholder="Description"
+            required
+          />
+          <select id="expenseCategory" required>
+            <option value="House">House</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Subscription">Subscription</option>
+            <option value="Going Out">Going Out</option>
+            <option value="Car">Car</option>
+            <option value="Other">Other</option>
+          </select>
+          <input type="submit" onclick="addExpense()" />
+        </form>
+      </div>
+      <div class="input-section">
+        <form id="income" method="" action="">
+          <input
+            type="number"
+            id="incomeAmount"
+            placeholder="Income Amount"
+            required
+          />
+          <input
+            type="text"
+            id="incomeDescription"
+            placeholder="Description"
+            required
+          />
+          <select id="incomeCategory">
+            <option value="Cash">Cash</option>
+            <option value="Salary">Salary</option>
+            <option value="Other">Other</option>
+            <option value="Zelle">Zelle</option>
+          </select>
+          <input onclick="addIncome()" type="submit" />
+        </form>
+      </div>
 
-  <section class="container">
-    <div class="input-section">
-      <form id="expense" method="" action="">
-        <input type="number" id="expenseAmount" placeholder="Expense Amount" required />
-        <input type="text" id="expenseDescription" placeholder="Description" required />
-        <select id="expenseCategory" required>
-          <option value="House">House</option>
-          <option value="Grocery">Grocery</option>
-          <option value="Subscription">Subscription</option>
-          <option value="Going Out">Going Out</option>
-          <option value="Car">Car</option>
-          <option value="Other">Other</option>
-        </select>
-        <input type="submit" onclick="addExpense()">
-      </form>
-
-    </div>
-    <div class="input-section">
-      <form id="income" method="" action="">
-        <input type="number" id="incomeAmount" placeholder="Income Amount" required />
-        <input type="text" id="incomeDescription" placeholder="Description" required />
-        <select id="incomeCategory">
-          <option value="Cash">Cash</option>
-          <option value="Salary">Salary</option>
-          <option value="Other">Other</option>
-          <option value="Zelle">Zelle</option>
-        </select>
-        <input onclick="addIncome()" type="submit">
-      </form>
-    </div>
-
-    <div class="total">
-      <h2>Total Expense: $<span id="totalExpenses">0</span></h2>
-      <h2>Total Income: $<span id="totalIncome">0</span></h2>
-      <h2>Net: $<span id="net">0</span></h2>
-    </div>
-    <div class="split">
-    <div class="table-section">
-      <input type="text" id="expenseInput" onkeyup="searchTable()" placeholder="Search for an expense..." />
-      <table id="expenseTable">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Inc/Exp</th>
-          </tr>
-        </thead>
-        <tbody id="expenseTableBody">
-          <!-- Expenses will populate here -->
-        </tbody>
-      </table>
-    </div>
-    <canvas id="expenseChart" width="400" height="400" aria-label="Expense chart data visualization"
-      role="img"></canvas>
-    </div>
-  </section>
-  <script src="assets/script.js"></script>
-</body>
-
+      <div class="total">
+        <h2>Total Expense: $<span id="totalExpenses">0</span></h2>
+        <h2>Total Income: $<span id="totalIncome">0</span></h2>
+        <h2>Net: $<span id="net">0</span></h2>
+      </div>
+      <div class="split">
+        <div class="table-section">
+          <input
+            type="text"
+            id="expenseInput"
+            onkeyup="searchTable()"
+            placeholder="Search for an expense..."
+          />
+          <table id="expenseTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Inc/Exp</th>
+              </tr>
+            </thead>
+            <tbody id="expenseTableBody">
+              <!-- Expenses will populate here -->
+            </tbody>
+          </table>
+        </div>
+        <canvas
+          id="expenseChart"
+          width="400"
+          height="400"
+          aria-label="Expense chart data visualization"
+          role="img"
+        ></canvas>
+      </div>
+    </section>
+    <script src="assets/script.js"></script>
+  </body>
 </html>
