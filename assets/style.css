@@ -268,9 +268,6 @@ tr[data-category="Cash"] {
   background-color: #f1f1f1;
 }
 
-footer, footer > *{
-  color: #fff;
-}
 .modal-btn {
   transition: background 250ms;
   padding: 16px 24px;
@@ -346,7 +343,7 @@ footer {
 }
 
 footer p {
-  color: #221133;
+  color: #fff;
   margin: 0;
 }
 
@@ -354,7 +351,6 @@ footer a {
   text-decoration: none;
   color: inherit;
 }
-
 
 /* Hover Effects and Responsive Design */
 input:hover,
