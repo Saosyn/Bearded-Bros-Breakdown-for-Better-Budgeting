@@ -133,10 +133,12 @@ function updateChart() {
         {
           data: Object.values(categoryTotals),
           backgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56",
-            "#4BC0C0",
+            "#9ee73e", 
+            "#ff9999",
+            "#cc99ff",
+            "#99ccff",
+            "#66cccc", 
+            "#ffcc99",
             "#9966FF",
           ],
           hoverOffset: 4,
